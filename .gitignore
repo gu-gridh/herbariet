@@ -79,7 +79,11 @@ node_modules/
 # Misc
 *.bak
 *.orig
-
+# migration files (ignoring migrations - use with caution!)
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+# except for __init__.py files
 # If you generate a requirements freeze file for deployment, keep it; otherwise ignore patterns like:
 # requirements-local.txt
 
