@@ -1,0 +1,21 @@
+/* Merged original static styles */
+body {
+  background-color: rgb(215, 215, 205);
+  margin: 0;
+  padding: 0;
+  font-family: 'barlow condensed', sans-serif !important;
+  min-height: 100%;
+  width: 100%;
+}
+#hero { position: absolute; width:100%; height:50vh; background-image:url('/static/assets/snowhist1.jpg'); background-position:50%; background-size:cover; }
+#main { position:relative; top:0; background:linear-gradient(180deg, rgba(215,215,205,0) 0%, rgba(215,215,205,0.3) 30vh, rgba(215,215,205,1) 48vh, rgba(215,215,205,1) 99%); }
+#content { position:relative; padding:45vh 30px 0 30px; }
+#linkgroup { padding:30px; }
+h1 { font-size:3em; font-weight:400; line-height:.9; margin:0 0 30px 0; width:80%; letter-spacing:-2px; color:rgb(100,80,40); font-family:'Playfair Display', serif; }
+p { font-size:1.2em; font-weight:200; }
+.site-link { font-family:'Cormorant Garamond', serif; letter-spacing:-1px; background:url('https://data.dh.gu.se/ui-icons/arrow_back_black_circle.png') no-repeat 0 50% / 30px; padding-left:40px; margin-bottom:15px; font-size:30px; }
+.plant-entry { padding: 2rem 30px; }
+.plant-description { margin-top:1rem; }
+.plant-links ul { list-style:disc; padding-left:20px; }
+.plant-image { display:block; margin: 0 0 1rem 0; }
+*:focus { outline:none !important; }

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+<div id="hero"></div>
+<div id="main">
+  <div id="content">
+    <h1>{{ page.title }}</h1>
+    <p>Welcome to Herbariet. Create plant entries under this page.</p>
+  </div>
+  <div id="linkgroup">
+    {# Placeholder dynamic links if needed later #}
+  </div>
+</div>
+{% endblock %}

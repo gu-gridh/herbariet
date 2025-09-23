@@ -1,0 +1,86 @@
+# ---- Python bytecode / build artifacts ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+*.egg
+
+# Virtual environments / environments (avoid committing local envs)
+.env
+.env.*
+.venv/
+venv/
+ENV/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# Django / Wagtail
+# Local SQLite database (remove this line if you want to commit a starter DB)
+/db.sqlite3
+herbariet/db.sqlite3
+
+# Collected static root (STATIC_ROOT). Keep app static directories.
+/static/
+
+# User uploaded media (MEDIA_ROOT)
+/media/
+
+# Logs
+*.log
+logs/
+
+# Cache / state
+.cache/
+pytest_cache/
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+
+# Coverage / testing
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Type checking
+pyrightconfig.json.tmp
+
+# Tooling
+.tox/
+.nox/
+ruff_cache/
+.mypy_cache/
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (future-proofing if you add JS tooling)
+node_modules/
+*.tsbuildinfo
+
+# Lock files you may not want (uncomment if needed)
+# poetry.lock
+# Pipfile.lock
+
+# Misc
+*.bak
+*.orig
+
+# If you generate a requirements freeze file for deployment, keep it; otherwise ignore patterns like:
+# requirements-local.txt
+
+# End of file

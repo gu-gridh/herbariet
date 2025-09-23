@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-plantpage{% endblock %}
+
+{% block content %}
+<article class="plant-entry">
+  <h1>{{ page.name }}</h1>
+  {% if page.image %}
+    {% image page.image fill-800x400 class="plant-image" %}
+  {% endif %}
+  <div class="plant-description">{{ page.description|richtext }}</div>
+  {% if page.links.all %}
+    <div class="plant-links">
+      <h2>Links</h2>
+      <ul>
+        {% for link in page.links.all %}
+          <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.url }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</article>
+{% endblock %}
