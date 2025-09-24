@@ -37,3 +37,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+# migration files (ignoring migrations - use with caution!)
+*/migrations/*.py
+*/migrations/*.pyc
+!*/migrations/__init__.py
+# except for __init__.py files

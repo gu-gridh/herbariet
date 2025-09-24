@@ -1,2 +1,4 @@
 Django>=5.2,<5.3
 wagtail>=7.1,<7.2
+psycopg[binary]>=3.2,<4
+dotenv>=1.0,<2.0
