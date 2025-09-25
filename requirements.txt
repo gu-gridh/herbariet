@@ -1,0 +1,5 @@
+Django<5.3,>=5.2
+wagtail<7.2,>=7.1
+psycopg[binary]<4,>=3.2
+python-dotenv<2.0,>=1.0
+django-filter
