@@ -80,9 +80,8 @@ node_modules/
 *.bak
 *.orig
 # migration files (ignoring migrations - use with caution!)
-*/migrations/*.py
-*/migrations/*.pyc
-!*/migrations/__init__.py
+migrations
+static
 # except for __init__.py files
 # If you generate a requirements freeze file for deployment, keep it; otherwise ignore patterns like:
 # requirements-local.txt

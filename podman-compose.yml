@@ -1,10 +1,12 @@
 services:
   db:
     image: docker.io/library/postgres:16
+    env_file:
+      - .env
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}       
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_LOCAL_NAME}
+      POSTGRES_USER: ${DB_LOCAL_USER}
+      POSTGRES_PASS: ${DB_LOCAL_PASS}
     volumes:
       - pgdata:/var/lib/postgresql/data
     expose:
@@ -24,13 +26,15 @@ services:
     env_file:
       - .env
     environment:
-      - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
-      - DB_LOCAL_NAME=${DB_NAME}
-      - DB_LOCAL_USER=${DB_USER}
-      - DB_LOCAL_PASS=${DB_PASSWORD}
+      - LOCAL_HOST=${LOCAL_HOST}
+      - PORT=5432
+      - DB_LOCAL_NAME=${DB_LOCAL_NAME}
+      - DB_LOCAL_USER=${DB_LOCAL_USER}
+      - DB_LOCAL_PASS=${DB_LOCAL_PASS}
+      - DJANGO_SUPERUSER_NAME=${DJANGO_SUPERUSER_NAME}
+      - DJANGO_SUPERUSER_PASS=${DJANGO_SUPERUSER_PASS}
+      - DJANGO_SUPERUSER_MAIL=${DJANGO_SUPERUSER_MAIL}
       - DJANGO_SETTINGS_MODULE=herbariet.settings.dev
-
     networks:
       - internal
 
