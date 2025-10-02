@@ -18,8 +18,8 @@ DATABASES = {
         'NAME': os.getenv('DB_LOCAL_NAME'),
         'USER': os.getenv('DB_LOCAL_USER'),
         'PASSWORD': os.getenv('DB_LOCAL_PASS'),
-        'HOST': os.getenv('LOCAL_HOST'),
-        'PORT': os.getenv('PORT'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
