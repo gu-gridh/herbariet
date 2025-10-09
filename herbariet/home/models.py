@@ -46,13 +46,25 @@ class PlantPage(Page):
         related_name='+',
         help_text='Upload a photo of the plant'
     )
+
+    qrcode = models.ImageField(
+        upload_to='qrcodes/',
+        null=True,
+        blank=True,
+        help_text='Upload a QR code image for the plant'
+    )
     
     content_panels = Page.content_panels + [
         FieldPanel('name'),
         FieldPanel('description'),
         FieldPanel('image'),
         InlinePanel('links', label='Links'),
+        FieldPanel('qrcode'),
     ]
+
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Plant Entry'
@@ -64,7 +76,7 @@ class PlantLink(Orderable):
     page = ParentalKey('home.PlantPage', related_name='links', on_delete=models.CASCADE)
     link_text = models.CharField(max_length=255, help_text='Label shown to users')
     url = models.URLField(help_text='Target URL')
-
+    
     panels = [
         FieldPanel('link_text'),
         FieldPanel('url'),
