@@ -2,11 +2,11 @@
 
 A simple web application for managing a collection of plants.
 
-# Django backend with wagtail cms and Template frontend.
+### Django backend with wagtail cms and Template frontend.
 
 For this project we used wagtail cms as a backend solution to give the user the ability to add their data easily through a user friendly interface.
 
-# Install podman and podman-compose on your machine
+### Install podman and podman-compose on your machine
 To install podman and podman-compose, follow the instructions for your operating system:
 
 - For Windows, you can use the Windows Subsystem for Linux (WSL) and install podman and podman-compose using the package manager for your chosen Linux distribution.
@@ -25,7 +25,7 @@ To install podman and podman-compose, follow the instructions for your operating
     podman machine start
     ```
 
-# How to run the project
+### How to run the project
 
 1. Clone the repository:
    ```bash
