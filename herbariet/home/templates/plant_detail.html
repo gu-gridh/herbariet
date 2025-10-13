@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ plant.title }} - Herbariet{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>{{ plant.title }}</h1>
+        {% if plant.name %}
+        <h2 class="text-muted">{{ plant.name }}</h2>
+        {% endif %}
+        
+        <div class="mt-4">
+            {{ plant.description|linebreaks }}
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        {% if plant.image %}
+        <img src="{{ plant.image.url }}" class="img-fluid mb-3" alt="{{ plant.title }}">
+        {% endif %}
+        
+        {% if plant.qrcode %}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">QR Code</h5>
+                <img src="{{ plant.qrcode.url }}" class="img-fluid" alt="QR Code for {{ plant.title }}">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<a href="{% url 'home:plant_list' %}" class="btn btn-secondary mt-3">← Back to Plants</a>
+{% endblock %}
