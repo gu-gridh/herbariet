@@ -21,10 +21,3 @@ def plant_detail(request, identifier):
         plant = get_object_or_404(PlantPage, slug=identifier)
     
     return render(request, 'plant_detail.html', {'plant': plant})
-
-def api_plants(request):
-    """JSON endpoint returning plants data"""
-    plants = PlantPage.objects.live().public().values(
-        'id', 'title', 'slug', 'name', 'description'
-    )
-    return JsonResponse(list(plants), safe=False)
