@@ -37,13 +37,28 @@ class PlantPage(Page):
         blank=True,
         help_text='Describe the plant'
     )
-    
-    image = models.ForeignKey(
-        'wagtailimages.Image',
+
+    # Add type field that can be chosen from specific options:
+    # History
+    # Biology
+    # Research
+
+    choices = [
+        ('history', 'History'),
+        ('biology', 'Biology'),
+        ('research', 'Research'),
+    ]
+    type = models.CharField(
+        max_length=20,
+        choices=choices,
+        default='biology',
+        help_text='Select the type of plant information'
+    )
+
+    image = models.ImageField(
+        upload_to='plants/',
         null=True,
         blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
         help_text='Upload a photo of the plant'
     )
 
@@ -51,11 +66,13 @@ class PlantPage(Page):
         upload_to='qrcodes/',
         null=True,
         blank=True,
+        max_length=255,  # Increase from default 100
         help_text='Upload a QR code image for the plant'
     )
     
     content_panels = Page.content_panels + [
         FieldPanel('name'),
+        FieldPanel('type'),
         FieldPanel('description'),
         FieldPanel('image'),
         InlinePanel('links', label='Links'),
