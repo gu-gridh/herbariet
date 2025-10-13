@@ -41,3 +41,21 @@ To install podman and podman-compose, follow the instructions for your operating
    podman-compose -f podman-compose.yml down
    podman-compose down
    ```
+
+### Admin Panel
+Access the admin panel at `http://localhost:8000/admin` with the following credentials:
+- Username: env.DJANGO_ADMIN_USER
+- Password: env.DJANGO_ADMIN_PASSWORD
+Make sure to change these credentials in a production environment for security reasons.
+
+### API Endpoint
+Plant list will be available at `http://localhost:8000/plants/` 
+Plant detail will be available at `http://localhost:8000/plants/<id>/` or `http://localhost:8000/plants/<slug>/`  
+
+### Notes
+- Ensure that you have the necessary permissions to run podman and podman-compose on your machine.
+- Modify the `podman-compose.yml` file as needed to fit your environment and requirements.  
+- Create env file in the root directory and add all the necessary environment variables as mentioned in the podman-compose.yml file.
+
+
+
