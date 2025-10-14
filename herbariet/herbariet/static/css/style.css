@@ -31,6 +31,14 @@
 }
 
 @font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/static/fonts/playfair-display/playfair-display-v40-latin-600.woff2') format('woff2');
+}
+
+@font-face {
   font-display: swap;
   font-family: 'Cormorant Garamond';
   font-style: normal;
@@ -72,12 +80,14 @@ body {
 }
 
 #linkgroup {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 h1 {
-  font-size: 3.0em;
-  font-weight: 400;
+  font-size: 3.4em;
+  font-weight: 600;
   line-height: 0.9;
   padding: 0;
   margin: 0;
@@ -89,7 +99,7 @@ h1 {
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: 200;
 }
 
@@ -101,8 +111,7 @@ p {
   background-position: 0px 50%;
   background-repeat: no-repeat;
   padding-left: 40px;
-  margin-bottom: 15px;
-  font-size: 30px;
+  font-size: 33px;
 }
 
 a,
