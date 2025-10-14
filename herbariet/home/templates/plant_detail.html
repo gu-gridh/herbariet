@@ -1,35 +1,32 @@
 {% extends 'base.html' %}
+{% load wagtailcore_tags %}
 
 {% block title %}{{ plant.title }} - Herbariet{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <h1>{{ plant.title }}</h1>
-        {% if plant.name %}
-        <h2 class="text-muted">{{ plant.name }}</h2>
-        {% endif %}
-        
-        <div class="mt-4">
-            {{ plant.description|linebreaks }}
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-        {% if plant.image %}
-        <img src="{{ plant.image.url }}" class="img-fluid mb-3" alt="{{ plant.title }}">
-        {% endif %}
-        
-        {% if plant.qrcode %}
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">QR Code</h5>
-                <img src="{{ plant.qrcode.url }}" class="img-fluid" alt="QR Code for {{ plant.title }}">
-            </div>
-        </div>
-        {% endif %}
-    </div>
-</div>
+{% if plant.image %}
+  <div id="hero" style="background-image: url('{{ plant.image.url }}');"></div>
+{% endif %}
 
-<a href="{% url 'home:plant_list' %}" class="btn btn-secondary mt-3">← Back to Plants</a>
+<div id="main">
+  <div id="content">
+
+    {% if plant.name %}
+      <h1>{{ plant.name }}</h1>
+    {% endif %}
+
+    {{ plant.description|richtext }}
+
+    {% if plant.links.all %}
+      <div id="linkgroup">
+        {% for link in plant.links.all %}
+          <a class="site-link" href="{{ link.url }}" target="_blank" rel="noopener">
+            {{ link.link_text }}
+          </a><br>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</div>
 {% endblock %}
