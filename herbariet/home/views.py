@@ -2,15 +2,14 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 from .models import PlantPage
 
+# Render the list of plants 
 def plant_list(request):
     """List all plants"""
     plants = PlantPage.objects.all()
-    print(f"Found {plants.count()} total plants")
-    for plant in plants:
-        print(f"Plant: {plant.title}, Live: {plant.live}, Slug: {plant.slug}")
-    
+
     return render(request, 'plant_list.html', {'plants': plants})
 
+# Render the detail view of a specific plant by ID or slug
 def plant_detail(request, identifier):
     """Detail view for a specific plant by ID or slug"""
     # Try to get by ID first (if identifier is numeric)
