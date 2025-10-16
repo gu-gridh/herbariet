@@ -5,26 +5,30 @@
 
 {% block content %}
 {% if plant.image %}
-  <div id="hero" style="background-image: url('{{ plant.image.url }}');"></div>
+<div id="hero" style="background-image: url('{{ plant.image.url }}');"></div>
 {% endif %}
 
 <div id="main">
   <div id="content">
 
     {% if plant.name %}
-      <h1>{{ plant.name }}</h1>
+    <h1>{{ plant.name }}</h1>
+    {% endif %}
+
+    {% if plant.type %}
+    <h2 class="plant-type">{{ plant.get_type_display }}</h2>
     {% endif %}
 
     {{ plant.description|richtext }}
 
     {% if plant.links.all %}
-      <div id="linkgroup">
-        {% for link in plant.links.all %}
-          <a class="site-link" href="{{ link.url }}" target="_blank" rel="noopener">
-            {{ link.link_text }}
-          </a>
-        {% endfor %}
-      </div>
+    <div id="linkgroup">
+      {% for link in plant.links.all %}
+      <a class="site-link" href="{{ link.url }}" target="_blank" rel="noopener">
+        {{ link.link_text }}
+      </a>
+      {% endfor %}
+    </div>
     {% endif %}
 
   </div>

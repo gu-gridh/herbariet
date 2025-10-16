@@ -85,13 +85,24 @@ body {
   gap: 5px;
 }
 
+h2 {
+  font-size: 2.2em;
+  line-height: 0.9;
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  letter-spacing: 0px;
+  color: rgb(69, 58, 36);
+  font-family: 'Playfair Display', serif;
+}
+
 h1 {
   font-size: 3.4em;
   font-weight: 600;
   line-height: 0.9;
   padding: 0;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 80%;
   letter-spacing: -2px;
   color: rgb(100, 80, 40);
