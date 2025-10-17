@@ -58,6 +58,8 @@ class PlantPage(Page):
 
     image = models.ImageField(
         upload_to='plants/',
+        null=False,
+        blank=False,
         help_text='Upload a photo of the plant (required)'
     )
 
