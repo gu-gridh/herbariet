@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel, InlinePanel
@@ -57,9 +58,7 @@ class PlantPage(Page):
 
     image = models.ImageField(
         upload_to='plants/',
-        null=True,
-        blank=True,
-        help_text='Upload a photo of the plant'
+        help_text='Upload a photo of the plant (required)'
     )
 
     qrcode = models.ImageField(
@@ -69,20 +68,19 @@ class PlantPage(Page):
         max_length=255,  # Increase from default 100
         help_text='Upload a QR code image for the plant'
     )
-    
+
     content_panels = Page.content_panels + [
         FieldPanel('name'),
         FieldPanel('type'),
         FieldPanel('description'),
         FieldPanel('image'),
-        InlinePanel('links', label='Links'),
+        InlinePanel('links', label='Links', max_num=3),
         FieldPanel('qrcode'),
     ]
 
-
     def __str__(self):
         return self.name
-
+    
     class Meta:
         verbose_name = 'Plant Entry'
         verbose_name_plural = 'Plant Entries'
