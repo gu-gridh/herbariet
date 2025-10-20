@@ -23,6 +23,20 @@ load_dotenv()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+# CSRF and CORS settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://herbariet.dh.gu.se',
+    'http://herbariet.dh.gu.se',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]
+
+ALLOWED_HOSTS = [
+    'herbariet.dh.gu.se',
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/

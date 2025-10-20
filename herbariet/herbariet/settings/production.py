@@ -22,9 +22,11 @@ WAGTAILADMIN_BASE_URL = "https://herbariet.dh.gu.se"
 ALLOWED_HOSTS = ["herbariet.dh.gu.se"]
 
 CSRF_TRUSTED_ORIGINS = ['https://herbariet.dh.gu.se']
-CSRF_COOKIE_SECURE = True
+# Additional production settings
+SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
