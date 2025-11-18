@@ -46,8 +46,16 @@
   src: url('/static/fonts/cormorant-garamond/cormorant-garamond-v21-latin-300.woff2') format('woff2');
 }
 
+@font-face {
+  font-display: swap;
+  font-family: 'Hypatia';
+  font-style: normal;
+  font-weight: 100;
+  src: url('/static/fonts/hypatia/hypatia-sans-pro-extralight.woff2') format('woff2');
+}
+
 body {
-  background-color: rgb(215, 215, 205);
+  background-color: rgb(225, 222, 210);
   margin: 0px;
   padding: 0px;
   font-family: 'Barlow Condensed', sans-serif !important;
@@ -67,8 +75,8 @@ body {
 #main {
   position: relative;
   top: calc(0);
-  background-color: rgb(215, 215, 205);
-  background: linear-gradient(180deg, rgba(215, 215, 205, 0) 0%, rgba(215, 215, 205, 0.3) 30vh, rgba(215, 215, 205, 1) 48vh, rgba(215, 215, 205, 1) 99%);
+  background-color: rgb(225, 222, 210);
+  background: linear-gradient(180deg, rgba(225, 222, 210, 0) 0%, rgba(225, 222, 210, 0.3) 30vh, rgba(225, 222, 210, 1) 48vh, rgba(225, 222, 210, 1) 99%);
 }
 
 #content {
@@ -94,7 +102,7 @@ h2 {
   width: 80%;
   letter-spacing: 0px;
   color: rgb(69, 58, 36);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Hypatia', sans-serif;
 }
 
 h1 {
@@ -106,8 +114,9 @@ h1 {
   margin-bottom: 20px;
   width: 80%;
   letter-spacing: -2px;
-  color: rgb(100, 80, 40);
-  font-family: 'Playfair Display', serif;
+  color: rgb(50, 50, 50);
+  font-weight:100;
+  font-family: 'Hypatia', sans-serif;
 }
 
 p {
