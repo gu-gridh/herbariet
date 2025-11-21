@@ -56,12 +56,27 @@ class PlantPage(Page):
         help_text='Select the type of plant information'
     )
 
-    image = models.ImageField(
+    banner_image = models.ImageField(
         upload_to='plants/',
         null=False,
         blank=False,
         help_text='Upload a photo of the plant (required)'
     )
+
+    single_image = models.ImageField(
+        upload_to='plants/',
+        null=True,
+        blank=True,
+        help_text='Upload an additional photo of the plant (optional)'
+    )
+
+    image_caption = models.CharField(
+        max_length=255,
+        null=True,
+        blank=True,
+        help_text='Caption for the additional image'
+    )
+
 
     qrcode = models.ImageField(
         upload_to='qrcodes/',
@@ -75,8 +90,10 @@ class PlantPage(Page):
         FieldPanel('name'),
         FieldPanel('type'),
         FieldPanel('description'),
-        FieldPanel('image'),
-        InlinePanel('links', label='Links', max_num=3),
+        FieldPanel('banner_image'),
+        FieldPanel('single_image'),
+        FieldPanel('image_caption'),
+        InlinePanel('links', label='Links', max_num=5),
         FieldPanel('qrcode'),
     ]
 

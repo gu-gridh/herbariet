@@ -6,8 +6,8 @@
 <article class="plant-entry">
   <h1>{{ page.name }}</h1>
   
-  {% if page.image %}
-    <img src="{{ page.image.url }}" class="plant-image" alt="{{ page.name }}" loading="lazy">
+  {% if page.banner_image %}
+    <img src="{{ page.banner_image.url }}" class="plant-image" alt="{{ page.name }}" loading="lazy">
   {% endif %}
   
   <div class="plant-description">{{ page.description|richtext }}</div>

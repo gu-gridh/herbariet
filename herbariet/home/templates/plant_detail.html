@@ -4,8 +4,8 @@
 {% block title %}{{ plant.title }} - Herbariet{% endblock %}
 
 {% block content %}
-{% if plant.image %}
-<div id="hero" style="background-image: url('{{ plant.image.url }}');"></div>
+{% if plant.banner_image %}
+<div id="hero" style="background-image: url('{{ plant.banner_image.url }}');"></div>
 {% endif %}
 
 <div id="main">
