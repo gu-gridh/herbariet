@@ -31,12 +31,12 @@ class PlantPage(Page):
     
     name = models.CharField(
         max_length=200, 
-        help_text='Enter the plant name'
+        help_text='Title for the page. 200 characters max. ~25 characters recommended.'
     )
     
     description = RichTextField(
         blank=True,
-        help_text='Describe the plant'
+        help_text='Description for the page.'
     )
 
     # Add type field that can be chosen from specific options:
@@ -53,21 +53,21 @@ class PlantPage(Page):
         max_length=20,
         choices=choices,
         default='biology',
-        help_text='Select the type of plant information'
+        help_text='Select the category.'
     )
 
     banner_image = models.ImageField(
         upload_to='plants/',
         null=False,
         blank=False,
-        help_text='Upload a photo of the plant (required)'
+        help_text='Image that will be placed at the top of the page (required)'
     )
 
     single_image = models.ImageField(
         upload_to='plants/',
         null=True,
         blank=True,
-        help_text='Upload an additional photo of the plant (optional)'
+        help_text='Upload an additional image (optional)'
     )
 
     image_caption = models.CharField(
@@ -77,13 +77,12 @@ class PlantPage(Page):
         help_text='Caption for the additional image'
     )
 
-
     qrcode = models.ImageField(
         upload_to='qrcodes/',
         null=True,
         blank=True,
         max_length=255,  # Increase from default 100
-        help_text='Upload a QR code image for the plant'
+        help_text='Upload the QR code (optional)'
     )
 
     content_panels = Page.content_panels + [
