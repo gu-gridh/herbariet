@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
-{% load wagtailcore_tags wagtailimages_tags %}
+{% load wagtailcore_tags %}
 {% block body_class %}template-plantpage{% endblock %}
 
 {% block content %}
 <article class="plant-entry">
   <h1>{{ page.name }}</h1>
+  
   {% if page.image %}
     <img src="{{ page.image.url }}" class="plant-image" alt="{{ page.name }}" loading="lazy">
   {% endif %}
+  
   <div class="plant-description">{{ page.description|richtext }}</div>
+  
+  {% if page.qrcode %}
+    <div class="plant-qrcode">
+      <h2>QR Code</h2>
+      <img src="{{ page.qrcode.url }}" alt="QR Code for {{ page.name }}" loading="lazy">
+    </div>
+  {% endif %}
+  
   {% if page.links.all %}
     <div class="plant-links">
       <h2>Links</h2>
