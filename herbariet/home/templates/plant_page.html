@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <article class="plant-detail">
+                <header class="mb-4">
+                    <h1 class="display-4 mb-3">{{ page.name }}</h1>
+                    {% if page.type %}
+                    <span class="badge bg-primary mb-3">{{ page.get_type_display }}</span>
+                    {% endif %}
+                </header>
+
+                {% if page.image %}
+                <div class="plant-image-container mb-4">
+                    <img src="{{ page.image.url }}" class="img-fluid rounded shadow" alt="{{ page.name }}" loading="lazy">
+                </div>
+                {% endif %}
+
+                {% if page.description %}
+                <div class="plant-description mb-4">
+                    <h2 class="h4 mb-3">Description</h2>
+                    <div class="rich-text">
+                        {{ page.description|richtext }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if page.links.all %}
+                <div class="plant-links mb-4">
+                    <h2 class="h4 mb-3">Related Links</h2>
+                    <ul class="list-group">
+                        {% for link in page.links.all %}
+                        <li class="list-group-item">
+                            <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+                                {{ link.link_text }}
+                                <i class="fas fa-external-link-alt ms-2"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if page.qrcode %}
+                <div class="qrcode-container mb-4">
+                    <h2 class="h4 mb-3">QR Code</h2>
+                    <img src="{{ page.qrcode.url }}" class="img-thumbnail" alt="QR Code for {{ page.name }}" style="max-width: 200px;">
+                </div>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</div>
+
+<style>
+.plant-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.plant-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 600px;
+}
+
+.rich-text p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+}
+</style>
+{% endblock %}
