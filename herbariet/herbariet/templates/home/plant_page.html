@@ -6,7 +6,7 @@
 <article class="plant-entry">
   <h1>{{ page.name }}</h1>
   {% if page.image %}
-    {% image page.image fill-800x400 class="plant-image" %}
+    <img src="{{ page.image.url }}" class="plant-image" alt="{{ page.name }}" loading="lazy">
   {% endif %}
   <div class="plant-description">{{ page.description|richtext }}</div>
   {% if page.links.all %}
