@@ -1,8 +1,10 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from wagtail.models import Page, Orderable
 from wagtail.fields import RichTextField
-from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.admin.panels import FieldPanel, InlinePanel, HelpPanel
 from modelcluster.fields import ParentalKey
 
 
@@ -84,6 +86,13 @@ class PlantPage(Page):
         max_length=255,  # Increase from default 100
         help_text='Upload the QR code (optional)'
     )
+
+    def get_frontend_url(self):
+        """Generate the frontend URL for this plant"""
+        if self.id and self.slug:
+            # Use the slug which Wagtail generates from the title
+            return f"https://herbariet.dh.gu.se/plants/{self.slug}"
+        return None
 
     content_panels = Page.content_panels + [
         FieldPanel('name'),
