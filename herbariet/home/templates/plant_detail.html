@@ -17,6 +17,15 @@
 
     {{ plant.description|richtext }}
 
+    {% if plant.single_image %}
+    <figure class="plant-image-block">
+      <img class="plant-image" src="{{ plant.single_image.url }}" alt="{{ plant.name }} image">
+      {% if plant.image_caption %}
+      <figcaption class="plant-image-caption">{{ plant.image_caption }}</figcaption>
+      {% endif %}
+    </figure>
+    {% endif %}
+
     {% if plant.links.all %}
     <div id="linkgroup">
       {% for link in plant.links.all %}
