@@ -128,6 +128,7 @@ h2 {
 }
 
 h1 {
+  text-transform: uppercase;
   font-size: 3.2em;
   font-weight: 600 !important;
   line-height: 0.9;
@@ -135,7 +136,7 @@ h1 {
   margin: 0;
   margin-bottom: 20px;
   width: 80%;
-  letter-spacing: -2px;
+  letter-spacing: 2px;
   color: rgb(50, 50, 50);
   font-family: 'Hypatia', sans-serif;
 }
