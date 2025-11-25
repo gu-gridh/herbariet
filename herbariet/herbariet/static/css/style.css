@@ -103,7 +103,6 @@ body {
 .plant-image {
   display: block;
   width: 100%;
-  max-width: 100%;
   height: auto;
   max-height: 70vh;
   object-fit: contain;
@@ -138,7 +137,6 @@ h1 {
   width: 80%;
   letter-spacing: -2px;
   color: rgb(50, 50, 50);
-  font-weight:100;
   font-family: 'Hypatia', sans-serif;
 }
 
@@ -152,7 +150,7 @@ p {
   letter-spacing: -1px;
   background: url("https://data.dh.gu.se/ui-icons/arrow_link_black_circle.png");
   background-size: 30px;
-  background-position: 0px 50%;
+  background-position: 0 7px;
   background-repeat: no-repeat;
   padding-left: 40px;
   font-size: 33px;
@@ -173,4 +171,22 @@ a:focus {
 
 *:focus {
   outline: none !important;
+}
+
+@media (min-width: 1200px) {
+  .plant-image-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .plant-image {
+    max-width: 65%;
+    width: auto;
+    margin: 0;
+  }
+
+  .plant-image-caption {
+    max-width: 50%;
+  }
 }
