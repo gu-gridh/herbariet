@@ -20,7 +20,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/app/herbariet/
+      - .:/app/herbariet/:z
     depends_on:
       - db
     env_file:
