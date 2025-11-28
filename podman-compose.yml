@@ -18,7 +18,7 @@ services:
     build: .
     container_name: herbariet_web
     ports:
-      - "8000:8000"
+      - "8030:8030"
     volumes:
       - .:/app/herbariet/:z
     depends_on:
